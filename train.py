@@ -1,4 +1,4 @@
-import fire
+import argparse
 import tensorflow as tf
 
 
@@ -26,4 +26,13 @@ class Trainer(object):
 
 
 if __name__ == '__main__':
-    fire.Fire(Trainer)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--lr", type=float, default=0.001,
+                        help="learning rate")
+    parser.add_argument("--dropout", type=float, default=0.2, help="dropout")
+    parser.add_argument("--epochs", type=int, default=5, help="epochs")
+    args = vars(parser.parse_args())
+    print("args:", args)
+    t = Trainer()
+    loss, accuracy = t.run(**args)
+    print('loss:', loss, ', accuracy:', accuracy)
