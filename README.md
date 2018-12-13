@@ -1,2 +1,2 @@
-# bc_hyperopt_example
+# bc-hyperopt-example
 brain cloud hyperopt example
